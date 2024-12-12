@@ -1,14 +1,11 @@
 package com.example.nearby.data.model
 
-import kotlinx.serialization.Serializable
-
-
-@Serializable
-data class Market(
+data class MarketDetails(
     val id: String,
     val categoryId: String,
     val name: String,
     val description: String,
+    val rule: List<Rule>,
     val coupons: Int,
     val latitude: Double,
     val longitude: Double,

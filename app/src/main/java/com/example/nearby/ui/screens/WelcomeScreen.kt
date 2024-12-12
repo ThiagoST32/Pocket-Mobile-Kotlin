@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -34,23 +35,23 @@ import com.example.nearby.ui.theme.Typography
 
 
 @Composable
-fun WelcomeScreen(modifier: Modifier = Modifier) {
+fun WelcomeScreen(modifier: Modifier = Modifier, onNavigateToHome: () -> Unit) {
     Column(
         modifier = modifier
-            .padding(horizontal = 40.dp, vertical = 40.dp)
-            .fillMaxWidth()
             .background(Color.White)
+            .fillMaxSize()
+            .padding(horizontal = 40.dp, vertical = 48.dp)
             .verticalScroll(state = rememberScrollState()),
         verticalArrangement = Arrangement.SpaceBetween
     ) {
         WelcomeScreenHeader()
         WelcomeContent()
-        NearbyButton(modifier = Modifier.fillMaxWidth(), text = "Começar", onClick = {})
+        NearbyButton(modifier = Modifier.fillMaxWidth().padding(top = 48.dp), text = "Começar", onClick = onNavigateToHome)
     }
 }
 
 @Preview
 @Composable
 private fun WelcomeScreenPreview() {
-    WelcomeScreen()
+    WelcomeScreen(onNavigateToHome = {})
 }
