@@ -1,5 +1,8 @@
 package com.example.nearby.data.model
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class MarketDetails(
     val id: String,
     val categoryId: String,
